@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Muhammad Mehran – Dynamics 365 CRM Developer. Custom CRM, Power Platform, C# plugins, Microsoft Fabric." />
   <title>Muhammad Mehran — Dynamics 365 CRM Developer</title>
-  <!-- Favicon (light friendly) -->
   <link href="img/favicon.png" rel="icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +30,6 @@
       --body:     'DM Sans', sans-serif;
     }
 
-    /* ─── RESET & GLOBAL ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html {
       scroll-behavior: smooth;
@@ -51,12 +49,11 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* ─── SCROLLBAR (light) ─── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #e2e8f0; }
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
 
-    /* ─── NAVBAR (light, glass) ─── */
+    /* ─── NAVBAR ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0;
       z-index: 100;
@@ -73,15 +70,12 @@
       font-size: 1rem;
       font-weight: 700;
       color: var(--accent);
-      letter-spacing: -0.01em;
     }
-    .nav-logo span { color: var(--txt2); font-weight: 400; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-family: var(--mono);
       font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0;
       color: var(--txt2);
       transition: color .2s;
     }
@@ -113,32 +107,23 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
+      gap: 2rem;
       padding: 0 5vw;
       padding-top: 70px;
       position: relative;
       z-index: 1;
     }
     .hero-left { max-width: 600px; }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0;
-      color: var(--accent);
-      background: rgba(0,119,255,0.08);
-      border: 1px solid rgba(0,119,255,0.2);
-      padding: 0.4rem 1rem;
-      border-radius: 99px;
-      margin-bottom: 1.5rem;
+    .hero-right { 
+      display: flex; 
+      justify-content: flex-end;  /* Pushes avatar to the right */
+      align-items: center; 
     }
-    .hero-tag::before { content: ''; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; animation: pulse 1.5s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.2)} }
     .hero-name {
       font-family: var(--head);
       font-size: clamp(3rem, 6vw, 5rem);
       font-weight: 800;
-      line-height: 1;
+      line-height: 1.2;
       letter-spacing: -0.02em;
       margin-bottom: 0.8rem;
       color: var(--txt);
@@ -199,34 +184,49 @@
       margin-top: 0.2rem;
     }
 
-    /* Hero right (avatar) */
-    .hero-right { display: flex; justify-content: center; align-items: center; }
-    .avatar-wrap { position: relative; width: 280px; height: 280px; }
-    .avatar-ring { position: absolute; inset: -12px; border: 1px solid rgba(0,119,255,0.2); border-radius: 50%; animation: spin 20s linear infinite; }
-    .avatar-ring::after { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:8px; height:8px; background:var(--accent); border-radius:50%; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    /* ─── AVATAR ─── */
+    .avatar-wrap { 
+      position: relative; 
+      width: 280px; 
+      height: 280px; 
+    }
+    .avatar-ring { 
+      position: absolute; 
+      inset: -12px; 
+      border: 2px solid rgba(0,119,255,0.2); 
+      border-radius: 50%; 
+      animation: spin 20s linear infinite; 
+    }
+    .avatar-ring::after { 
+      content: ''; 
+      position: absolute; 
+      top: -6px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      width: 10px; 
+      height: 10px; 
+      background: var(--accent); 
+      border-radius: 50%; 
+    }
+    @keyframes spin { 
+      to { transform: rotate(360deg); } 
+    }
     .avatar-circle {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  overflow: hidden;  /* This MUST clip the image */
-  position: relative;
-  background: linear-gradient(135deg, #e0e7ff, #ffffff);
-  border: 3px solid white;
-  box-shadow: 0 20px 35px -15px rgba(0,0,0,0.2);
-  /* Remove display: flex - it can cause issues */
-}
-
-.avatar-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  /* Force the image to stay inside */
-  max-width: 100%;
-  max-height: 100%;
-}
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e0e7ff, #ffffff);
+      border: 3px solid white;
+      box-shadow: 0 20px 35px -15px rgba(0,0,0,0.2);
+    }
+    .avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
     .float-badge {
       position: absolute;
       background: white;
@@ -237,28 +237,23 @@
       font-size: 0.7rem;
       font-weight: 500;
       color: var(--txt2);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       white-space: nowrap;
       animation: float 3s ease-in-out infinite;
+      z-index: 10;
     }
     .float-badge i { color: var(--accent); margin-right: 0.4rem; }
-    .float-badge:nth-child(2) { top: -10px; right: -30px; }
-    .float-badge:nth-child(3) { bottom: 30px; right: -50px; animation-delay: 0.6s; }
-    .float-badge:nth-child(4) { bottom: -10px; left: -30px; animation-delay: 1.2s; }
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .float-badge:nth-child(3) { top: -15px; right: -30px; animation-delay: 0s; }
+    .float-badge:nth-child(4) { bottom: 35px; right: -50px; animation-delay: 0.6s; }
+    .float-badge:nth-child(5) { bottom: -15px; left: -30px; animation-delay: 1.2s; }
+    @keyframes float { 
+      0%,100% { transform: translateY(0); } 
+      50% { transform: translateY(-8px); } 
+    }
 
-    /* ─── SECTIONS (light) ─── */
+    /* ─── SECTIONS ─── */
     section { position: relative; z-index: 1; }
     .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 5vw; }
-    .section-tag {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
     .section-title {
       font-family: var(--head);
       font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -274,7 +269,8 @@
       margin: 1rem 0 2rem;
     }
 
-    /* ─── ABOUT ─── */
+    /* ─── ABOUT, SKILLS, EXPERIENCE, PROJECTS, EDUCATION, CONTACT, FOOTER ─── */
+    /* (Keeping your existing styles for these sections - they work fine) */
     #about { background: var(--bg2); }
     .about-grid {
       display: grid;
@@ -316,7 +312,6 @@
     .info-val a { color: inherit; }
     .info-val a:hover { color: var(--accent); }
 
-    /* ─── SKILLS ─── */
     #skills { background: var(--bg); }
     .skills-grid {
       display: grid;
@@ -354,7 +349,6 @@
       border: none;
     }
 
-    /* ─── EXPERIENCE (timeline) ─── */
     #experience { background: var(--bg2); }
     .timeline { position: relative; padding-left: 1rem; }
     .timeline::before { content:''; position:absolute; left: 28px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
@@ -402,7 +396,6 @@
     }
     .tl-list li::before { content:'▹'; position:absolute; left:0; color: var(--accent); }
 
-    /* ─── PROJECTS ─── */
     #projects { background: var(--bg); }
     .projects-grid {
       display: grid;
@@ -431,7 +424,6 @@
       color: var(--accent);
     }
 
-    /* ─── EDUCATION ─── */
     #education { background: var(--bg2); }
     .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
     .edu-card {
@@ -453,7 +445,6 @@
     .edu-org { font-size: 0.8rem; color: var(--txt2); }
     .edu-date { display: inline-block; margin-top: 0.8rem; font-size: 0.7rem; font-weight: 500; color: var(--txt2); }
 
-    /* ─── CONTACT ─── */
     #contact { background: var(--bg); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .contact-info { display: flex; flex-direction: column; gap: 1rem; }
@@ -503,7 +494,6 @@
     }
     .form-submit:hover { background: #005fcc; transform: translateY(-2px); }
 
-    /* ─── FOOTER ─── */
     footer {
       background: var(--bg2);
       border-top: 1px solid var(--line);
@@ -527,7 +517,6 @@
     }
     .social-links a:hover { border-color: var(--accent); color: var(--accent); background: white; }
 
-    /* ─── MOBILE MENU ─── */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -545,90 +534,128 @@
     .mobile-menu a { font-family: var(--mono); font-weight: 500; color: var(--txt2); }
     .mobile-menu a:hover { color: var(--accent); }
 
-    /* ─── FADE-IN ─── */
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ─── RESPONSIVE ─── */
-   /* ─── RESPONSIVE ─── */
-@media (max-width: 860px) {
-  #home { 
-    grid-template-columns: 1fr; 
-    padding-top: 100px; 
-    text-align: center; 
-  }
-  
-  /* DON'T hide the avatar on mobile - show it instead */
-  .hero-right { 
-    display: flex;  /* Change from 'none' to 'flex' */
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  
-  /* Make avatar smaller on mobile for better fit */
-  .avatar-wrap { 
-    width: 220px; 
-    height: 220px; 
-    margin: 0 auto;
-  }
-  
-  .avatar-circle {
-    width: 220px;
-    height: 220px;
-  }
-  
-  .float-badge {
-    font-size: 0.6rem;
-    padding: 0.3rem 0.7rem;
-    white-space: nowrap;
-  }
-  
-  /* Adjust floating badges position for smaller size */
-  .float-badge:nth-child(3) { 
-    top: -10px; 
-    right: -20px; 
-  }
-  
-  .float-badge:nth-child(4) { 
-    bottom: 25px; 
-    right: -35px; 
-  }
-  
-  .float-badge:nth-child(5) { 
-    bottom: -10px; 
-    left: -20px; 
-  }
-  
-  .hero-desc { 
-    margin-left: auto; 
-    margin-right: auto; 
-  }
-  
-  .hero-btns, 
-  .hero-stats { 
-    justify-content: center; 
-  }
-  
-  .about-grid, 
-  .contact-grid { 
-    grid-template-columns: 1fr; 
-  }
-  
-  .nav-links, 
-  .nav-cta { 
-    display: none; 
-  }
-  
-  .hamburger { 
-    display: flex; 
-  }
-}
+    /* ─── RESPONSIVE - AVATAR ON RIGHT ON DESKTOP, ON TOP ON MOBILE ─── */
+    @media (max-width: 860px) {
+      #home { 
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px; 
+        text-align: center; 
+        gap: 0.5rem;
+      }
+      
+      /* Avatar goes to the TOP on mobile */
+      .hero-right { 
+        order: -1;  /* Puts it first */
+        display: flex !important; 
+        justify-content: center; 
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+      
+      .hero-left { 
+        order: 0;
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      
+      /* Make avatar smaller on mobile */
+      .avatar-wrap { 
+        width: 220px; 
+        height: 220px; 
+        margin: 0 auto;
+      }
+      
+      .avatar-circle {
+        width: 220px;
+        height: 220px;
+      }
+      
+      .float-badge {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.7rem;
+      }
+      
+      .float-badge:nth-child(3) { 
+        top: -10px; 
+        right: -20px; 
+      }
+      
+      .float-badge:nth-child(4) { 
+        bottom: 25px; 
+        right: -35px; 
+      }
+      
+      .float-badge:nth-child(5) { 
+        bottom: -10px; 
+        left: -20px; 
+      }
+      
+      .hero-desc { 
+        margin-left: auto; 
+        margin-right: auto; 
+      }
+      
+      .hero-btns, 
+      .hero-stats { 
+        justify-content: center; 
+      }
+      
+      .about-grid, 
+      .contact-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .nav-links, 
+      .nav-cta { 
+        display: none; 
+      }
+      
+      .hamburger { 
+        display: flex; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      .avatar-wrap { 
+        width: 180px; 
+        height: 180px; 
+      }
+      
+      .avatar-circle {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .float-badge {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.6rem;
+      }
+      
+      .float-badge:nth-child(3) { 
+        top: -8px; 
+        right: -15px; 
+      }
+      
+      .float-badge:nth-child(4) { 
+        bottom: 20px; 
+        right: -25px; 
+      }
+      
+      .float-badge:nth-child(5) { 
+        bottom: -8px; 
+        left: -15px; 
+      }
+    }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">MUHAMMAD MEHRAN</span></div>
+  <div class="nav-logo">MUHAMMAD MEHRAN</div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -670,16 +697,16 @@
     </div>
   </div>
   <div class="hero-right">
-  <div class="avatar-wrap">
-    <div class="avatar-ring"></div>
-    <div class="avatar-circle">
-      <img src="img/mm-designs44-1_1.jpg" alt="Muhammad Mehran" />
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar-circle">
+        <img src="img/mm-designs44-1_1.jpg" alt="Muhammad Mehran" />
+      </div>
+      <div class="float-badge"><i class="fab fa-microsoft"></i> Dynamics 365 CRM</div>
+      <div class="float-badge"><i class="fas fa-bolt"></i> Power Platform</div>
+      <div class="float-badge"><i class="fas fa-database"></i> Microsoft Fabric</div>
     </div>
-    <div class="float-badge"><i class="fab fa-microsoft"></i> Dynamics 365 CRM</div>
-    <div class="float-badge"><i class="fas fa-bolt"></i> Power Platform</div>
-    <div class="float-badge"><i class="fas fa-database"></i> Microsoft Fabric</div>
   </div>
-</div>
 </section>
 
 <section id="about">
@@ -784,7 +811,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">MM.dev</div>
+  <div class="footer-logo">MUHAMMAD MEHRAN</div>
   <div class="footer-copy">© 2025 Muhammad Mehran. All rights reserved.</div>
   <div class="social-links">
     <a href="mailto:mehranmehroo44@gmail.com"><i class="fas fa-envelope"></i></a>
