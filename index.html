@@ -54,65 +54,103 @@
     ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 99px; }
 
     /* ─── NAVBAR ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw;
-      height: 70px;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-    }
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--txt2);
-      transition: color .2s;
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-cta {
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.5rem 1.2rem;
-      background: var(--accent);
-      color: white;
-      border-radius: 40px;
-      transition: all .2s;
-    }
-    .nav-cta:hover { background: #005fcc; transform: translateY(-1px); }
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--txt); border-radius: 2px; }
+    /* ─── NAVBAR ─── */
+nav {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.nav-container {
+  max-width: 1100px;  /* Match your section width */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  height: 70px;
+  width: 100%;
+}
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 2rem; 
+  list-style: none; 
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--txt2);
+  transition: color .2s;
+}
+
+.nav-links a:hover, 
+.nav-links a.active { 
+  color: var(--accent); 
+}
+
+.nav-cta {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.2rem;
+  background: var(--accent);
+  color: white;
+  border-radius: 40px;
+  transition: all .2s;
+}
+
+.nav-cta:hover { 
+  background: #005fcc; 
+  transform: translateY(-1px); 
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger span { 
+  display: block; 
+  width: 24px; 
+  height: 2px; 
+  background: var(--txt); 
+  border-radius: 2px; 
+}
 
     /* ─── HERO ─── */
-    #home {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 2rem;
-      padding: 0 5vw;
-      padding-top: 70px;
-      position: relative;
-      z-index: 1;
-    }
+    /* ─── HERO ─── */
+#home {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1100px;  /* Match other sections */
+  margin: 0 auto;      /* Center the section */
+  padding: 70px 5vw 0 5vw;
+  position: relative;
+  z-index: 1;
+}
     .hero-left { max-width: 600px; }
     .hero-right { 
       display: flex; 
@@ -494,28 +532,70 @@
     }
     .form-submit:hover { background: #005fcc; transform: translateY(-2px); }
 
-    footer {
-      background: var(--bg2);
-      border-top: 1px solid var(--line);
-      padding: 2rem 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-logo { font-family: var(--mono); font-weight: 700; color: var(--accent); }
-    .footer-copy { font-size: 0.8rem; color: var(--txt2); }
-    .social-links { display: flex; gap: 0.8rem; }
-    .social-links a {
-      width: 38px; height: 38px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--txt2);
-      transition: all .2s;
-    }
-    .social-links a:hover { border-color: var(--accent); color: var(--accent); background: white; }
+/* ─── FOOTER ─── */
+/* ─── FOOTER ─── */
+footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--line);
+  margin-top: 0;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 2rem 5vw;
+  width: 100%;
+}
+
+.footer-logo { 
+  font-family: var(--mono); 
+  font-weight: 700; 
+  color: var(--accent); 
+}
+
+.footer-copy { 
+  font-size: 0.8rem; 
+  color: var(--txt2); 
+}
+
+.social-links { 
+  display: flex; 
+  gap: 0.8rem; 
+}
+
+.social-links a {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt2);
+  transition: all .2s;
+}
+
+.social-links a:hover { 
+  border-color: var(--accent); 
+  color: var(--accent); 
+  background: white; 
+}
+
+/* Responsive footer */
+@media (max-width: 860px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 2rem 5vw;
+  }
+}
 
     .mobile-menu {
       display: none;
@@ -655,20 +735,22 @@
 <body>
 
 <nav>
-  <div class="nav-logo">MUHAMMAD MEHRAN</div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="mailto:mehranmehroo44@gmail.com">Hire Me</a>
-  <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-container">
+    <div class="nav-logo">MUHAMMAD MEHRAN</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:mehranmehroo44@gmail.com">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
@@ -811,12 +893,14 @@
 </section>
 
 <footer>
-  <div class="footer-logo">MUHAMMAD MEHRAN</div>
-  <div class="footer-copy">© 2025 Muhammad Mehran. All rights reserved.</div>
-  <div class="social-links">
-    <a href="mailto:mehranmehroo44@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://linkedin.com/in/mmehran44" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="tel:+923416512242"><i class="fas fa-phone"></i></a>
+  <div class="footer-container">
+    <div class="footer-logo">MUHAMMAD MEHRAN</div>
+    <div class="footer-copy">© 2025 Muhammad Mehran. All rights reserved.</div>
+    <div class="social-links">
+      <a href="mailto:mehranmehroo44@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/mmehran44" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+923416512242"><i class="fas fa-phone"></i></a>
+    </div>
   </div>
 </footer>
 
